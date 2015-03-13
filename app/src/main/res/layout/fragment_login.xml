@@ -1,9 +1,82 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.example.android.slashair.LoginFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="#15566B"
+            android:orientation="vertical"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip">
+
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:contentDescription="@string/app_name"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/icon" />
+
+            <EditText
+                android:id="@+id/login_username"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:hint="@string/username_label"
+                android:inputType="text"
+                android:padding="6dp"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:hint="@string/password_label"
+                android:inputType="textPassword"
+                android:padding="6dp"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/log_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#011E27"
+                android:text="@string/login_label"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <!-- Login progress -->
+            <ProgressBar
+                android:id="@+id/login_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center|center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
