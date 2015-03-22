@@ -31,13 +31,6 @@ public class QuickToUpFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_quick_to_up, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -67,7 +60,7 @@ public class QuickToUpFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onQuickTopupFragmentInteraction(Uri uri);
     }
 
 }
