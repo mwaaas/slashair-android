@@ -2,16 +2,12 @@ package com.example.android.slashair;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
-public class MainActivity extends ActionBarActivity implements LoginFragment.OnFragmentInteractionListener {
+public class MainActivity extends ActionBarActivity implements LoginFragment.OnFragmentInteractionListener, QuickToUpFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,24 +44,13 @@ public class MainActivity extends ActionBarActivity implements LoginFragment.OnF
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onLoginFragmentInteraction() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuickToUpFragment()).commit();
 
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+    @Override
+    public void onQuickTopupFragmentInteraction(Uri uri) {
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
     }
-
 }
