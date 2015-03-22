@@ -8,4 +8,9 @@
     <string name="username_label">User Name</string>
     <string name="password_label">Password</string>
     <string name="login_label">login</string>
+    <string name="no_connection">There is no internet connection</string>
+    <string name="error_invalid_username_or_password">Invalid username or password</string>
+    <string name="phone_number_label">phone number</string>
+    <string name="airtime_label">amount</string>
+    <string name="send_aitime_label">send airtime</string>
 </resources>

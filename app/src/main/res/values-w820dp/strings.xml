@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_connection">There is no internet connection</string>
+    <string name="airtime_label">amount</string>
+    <string name="send_aitime_label">send airtime</string>
+</resources>
