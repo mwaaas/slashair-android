@@ -42,6 +42,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.android.slashair.MainActivity.END_POINT_URL;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -204,7 +206,8 @@ public class LoginFragment extends Fragment {
         protected Boolean doInBackground(Void... params) {
             try {
                 SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-                String authenticationUrl = "http://www.slashair.com/api_v1/token-auth/";
+                String authenticationUrl = END_POINT_URL + "api_v1/token-auth/";
+                Log.i(TAG, "authentication url: "+authenticationUrl);
                 // Create a new HttpClient and POST header
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(authenticationUrl);

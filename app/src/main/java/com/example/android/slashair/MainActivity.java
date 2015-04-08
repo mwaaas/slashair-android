@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity implements LoginFragment.OnFragmentInteractionListener, QuickToUpFragment.OnFragmentInteractionListener{
 
+    static final public String END_POINT_URL = "http://www.slashair.com/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
