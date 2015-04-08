@@ -54,7 +54,7 @@
                 android:textColor="#000000" />
 
             <Button
-                android:id="@+id/send_in_button"
+                android:id="@+id/send_airtime_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -67,7 +67,7 @@
 
             <!-- Login progress -->
             <ProgressBar
-                android:id="@+id/login_progress"
+                android:id="@+id/send_airtime_progress"
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
