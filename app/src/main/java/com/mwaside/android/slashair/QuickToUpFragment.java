@@ -1,4 +1,4 @@
-package com.example.android.slashair;
+package com.mwaside.android.slashair;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -23,6 +23,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.android.slashair.SlashAirPreferenceActivity;
+import com.mwaside.android.slashair.R;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -44,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.example.android.slashair.MainActivity.END_POINT_URL;
+import static com.mwaside.android.slashair.MainActivity.END_POINT_URL;
 
 
 /**

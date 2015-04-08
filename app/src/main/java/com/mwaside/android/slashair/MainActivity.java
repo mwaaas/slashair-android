@@ -1,10 +1,14 @@
-package com.example.android.slashair;
+package com.mwaside.android.slashair;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.mwaside.android.slashair.LoginFragment;
+import com.mwaside.android.slashair.QuickToUpFragment;
+import com.mwaside.android.slashair.R;
 
 
 public class MainActivity extends ActionBarActivity implements LoginFragment.OnFragmentInteractionListener, QuickToUpFragment.OnFragmentInteractionListener{

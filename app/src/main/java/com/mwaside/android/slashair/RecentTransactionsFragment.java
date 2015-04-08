@@ -1,4 +1,4 @@
-package com.example.android.slashair;
+package com.mwaside.android.slashair;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BillingFragment.OnFragmentInteractionListener} interface
+ * {@link RecentTransactionsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class BillingFragment extends Fragment {
+public class RecentTransactionsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public BillingFragment() {
+    public RecentTransactionsFragment() {
         // Required empty public constructor
     }
 
@@ -28,7 +28,7 @@ public class BillingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_billing, container, false);
+        return inflater.inflate(R.layout.fragment_recent_transactions, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
