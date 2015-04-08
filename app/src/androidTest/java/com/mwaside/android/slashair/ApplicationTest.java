@@ -1,4 +1,4 @@
-package com.example.android.slashair;
+package com.mwaside.android.slashair;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

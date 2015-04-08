@@ -1,4 +1,4 @@
-package com.example.android.slashair;
+package com.mwaside.android.slashair;
 
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
