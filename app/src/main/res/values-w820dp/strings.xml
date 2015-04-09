@@ -3,4 +3,8 @@
     <string name="no_connection">There is no internet connection</string>
     <string name="airtime_label">amount</string>
     <string name="send_aitime_label">send airtime</string>
+    <string name="title_section1">Quick_topup</string>
+    <string name="recent_transaction_session">Transactions</string>
+    <string name="balance">Balance</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
 </resources>
