@@ -244,6 +244,7 @@ public class LoginFragment extends Fragment {
                 // save auth token sent to preference activity
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putString(SlashAirPreferenceActivity.AUTH_TOKEN, jsonObject.getString("token"));
+                editor.putBoolean(SlashAirPreferenceActivity.KEY_LOGGED_IN, true);
                 editor.commit();
 
                 Log.i(TAG, "authentication was successful");
