@@ -35,8 +35,6 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -228,18 +226,8 @@ public class QuickToUpFragment extends Fragment {
                     return false;
                 }
 
-                // Parse response content
-                JSONObject jsonObject = new JSONObject(response_content);
-
-                // save auth token sent to preference activity
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putString(SlashAirPreferenceActivity.AUTH_TOKEN, jsonObject.getString("token"));
-                editor.commit();
-
                 Log.i(TAG, "authentication was successful");
                 return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
             } catch (UnsupportedEncodingException e) {
