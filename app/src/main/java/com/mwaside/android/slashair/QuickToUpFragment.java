@@ -226,7 +226,7 @@ public class QuickToUpFragment extends Fragment {
                     return false;
                 }
 
-                Log.i(TAG, "authentication was successful");
+                Log.i(TAG, "airtime was sent successfully");
                 return true;
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
