@@ -223,8 +223,8 @@ public class QuickToUpFragment extends Fragment {
                 String response_content = EntityUtils.toString(entity);
                 Log.i(TAG, "response content: " + response_content);
 
-                //if response status code is not 200 the credentials are invalid
-                if (response.getStatusLine().getStatusCode() != 200) {
+                //if response status code is not 202 the credentials are invalid
+                if (response.getStatusLine().getStatusCode() != 202) {
                     return false;
                 }
 
