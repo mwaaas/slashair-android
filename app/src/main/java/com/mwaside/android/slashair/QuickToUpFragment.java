@@ -241,6 +241,11 @@ public class QuickToUpFragment extends Fragment {
         @Override
         protected void onPostExecute(final Boolean success) {
             showProgress(false);
+            if (success){
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new RecentTransactionsFragment())
+                        .commit();
+            }
         }
 
         @Override
