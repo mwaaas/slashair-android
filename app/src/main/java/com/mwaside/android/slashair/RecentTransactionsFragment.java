@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 /**
@@ -18,7 +20,8 @@ import android.view.ViewGroup;
 public class RecentTransactionsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    private ArrayAdapter<String> recent_transaction_adapter;
+    private String Tag = "RecentTransactionFragment";
     public RecentTransactionsFragment() {
         // Required empty public constructor
     }
@@ -28,7 +31,27 @@ public class RecentTransactionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recent_transactions, container, false);
+        View root_view = inflater.inflate(R.layout.fragment_recent_transactions, container, false);
+
+        //initialize adapter
+        recent_transaction_adapter = new ArrayAdapter<String>(
+                getActivity().getApplicationContext(),
+                R.layout.list_recent_transaction,
+                R.id.list_recent_transaction_textview,
+                new ServerEndpoint(getActivity().getApplicationContext()).get_recent_transaction()
+        );
+
+        ListView listView = (ListView) root_view.findViewById(R.id.listview_recent_transaction);
+        listView.setAdapter(recent_transaction_adapter);
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String item = mFocastAdapter.getItem(position);
+//                Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        return root_view;
     }
 
     @Override
