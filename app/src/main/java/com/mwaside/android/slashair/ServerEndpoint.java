@@ -12,6 +12,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -43,9 +44,10 @@ public class ServerEndpoint {
         httpGet.addHeader("Authorization", "Token " + token_key);
         return httpGet;
     }
-    public String [] get_recent_transaction()  {
+    public ArrayList<String> get_recent_transaction()  {
         String recent_transaction_url = base_url + "api_v1/recent_transaction/?transactions__user__username="+username;
         HttpGet httpGet = new HttpGet(recent_transaction_url);
+        ArrayList<String> recent_transactions = new ArrayList<String>();
 
         // add headers
         httpGet = add_header(httpGet);
@@ -58,25 +60,25 @@ public class ServerEndpoint {
             String response_content = EntityUtils.toString(response_entity);
             Log.i(Tag, "response: " + response_content);
 
-            JSONObject jsonObject = new JSONObject(response_content);
-            //JSONArray array = new JSONParser()
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+            JSONArray array = new JSONArray(response_content);
+            Log.i(Tag, "array:"+array);
+
+            for (int i = 0; i < array.length(); i++){
+                JSONObject transaction_data = array.getJSONObject(i);
+
+                String phone_number, amount, status;
+                phone_number = transaction_data.getString("phone_number");
+                amount = transaction_data.getString("amount");
+                status = transaction_data.getString("status");
+                recent_transactions.add(""+phone_number+" "+amount+" "+status);
+            }
+        } catch (IOException | JSONException e) {
+            Log.i(Tag, e.getMessage());
             e.printStackTrace();
         }
 
-        // return mock data
-        String [] forecast = {
-                "Today          - sunny     - 88/63",
-                "Tomorrow       - foggy      -70/40",
-                "Weds           - cloudy     - 7263",
-                "Thus           - Asteroid   - 75/65",
-                "Friday         - Heavy rain  - 65/56",
-                "Sat            - help         -65/51",
-                "sun            -sunny          -80/68"
-        };
-        return forecast;
+        Log.i(Tag, "results: "+recent_transactions);
+        return recent_transactions;
     }
 
 
