@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#15566B"
+    android:fillViewport="true"
+    android:gravity="start|fill"
+    android:minHeight="@dimen/abc_action_bar_default_height_material"
+    android:theme="@style/AppTheme"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Balance"
+        android:id="@+id/balance_lable"
+        style="@style/RtlOverlay.Widget.AppCompat.SearchView.MagIcon"
+        android:capitalize="none"
+        android:elegantTextHeight="true"
+        android:elevation="@dimen/abc_action_bar_stacked_max_height"
+        android:textStyle="bold|italic"
+        android:textSize="@android:dimen/app_icon_size"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Not found"
+        android:id="@+id/show_balance"
+        android:textColor="#ffff2511"
+        android:textSize="@android:dimen/app_icon_size"
+        android:textStyle="bold"
+        android:layout_below="@+id/balance_lable"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/how_to_bill"
+        android:layout_below="@+id/balance_lable"
+        android:layout_alignLeft="@+id/balance_lable"
+        android:layout_alignStart="@+id/balance_lable"
+        android:layout_marginTop="52dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</ScrollView>
