@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity implements LoginFragment.OnFragmentInteractionListener, QuickToUpFragment.OnFragmentInteractionListener,
-        LogOutFragment.OnFragmentInteractionListener, RecentTransactionsFragment.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks{
+        LogOutFragment.OnFragmentInteractionListener, RecentTransactionsFragment.OnFragmentInteractionListener, BillingFragment.OnFragmentInteractionListener, NavigationDrawerFragment.NavigationDrawerCallbacks{
 
     static final public String END_POINT_URL = "http://www.slashair.com/";
     private CharSequence mTitle;
@@ -134,6 +134,11 @@ public class MainActivity extends ActionBarActivity implements LoginFragment.OnF
 
     @Override
     public void onRecentTransactionFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onBillingFragmentInteraction(Uri uri) {
 
     }
 }
