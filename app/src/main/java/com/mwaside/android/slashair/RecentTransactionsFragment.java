@@ -2,6 +2,7 @@ package com.mwaside.android.slashair;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,6 +23,8 @@ public class RecentTransactionsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private ArrayAdapter<String> recent_transaction_adapter;
     private String Tag = "RecentTransactionFragment";
+    ListView listView;
+
     public RecentTransactionsFragment() {
         // Required empty public constructor
     }
@@ -34,15 +37,11 @@ public class RecentTransactionsFragment extends Fragment {
         View root_view = inflater.inflate(R.layout.fragment_recent_transactions, container, false);
 
         //initialize adapter
-        recent_transaction_adapter = new ArrayAdapter<String>(
-                getActivity().getApplicationContext(),
-                R.layout.list_recent_transaction,
-                R.id.list_recent_transaction_textview,
-                new ServerEndpoint(getActivity().getApplicationContext()).get_recent_transaction()
-        );
 
-        ListView listView = (ListView) root_view.findViewById(R.id.listview_recent_transaction);
-        listView.setAdapter(recent_transaction_adapter);
+
+        listView = (ListView) root_view.findViewById(R.id.listview_recent_transaction);
+
+        new FindRecentTransactions().execute();
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -84,6 +83,24 @@ public class RecentTransactionsFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onRecentTransactionFragmentInteraction(Uri uri);
+    }
+
+    public class FindRecentTransactions extends AsyncTask<Void, Void, ArrayAdapter>{
+
+        @Override
+        protected ArrayAdapter doInBackground(Void... voids) {
+            recent_transaction_adapter = new ArrayAdapter<String>(
+                    getActivity().getApplicationContext(),
+                    R.layout.list_recent_transaction,
+                    R.id.list_recent_transaction_textview,
+                    new ServerEndpoint(getActivity().getApplicationContext()).get_recent_transaction()
+            );
+            return recent_transaction_adapter;
+        }
+
+        protected void onPostExecute(final ArrayAdapter recent_transaction_adapter){
+            listView.setAdapter(recent_transaction_adapter);
+        }
     }
 
 }
