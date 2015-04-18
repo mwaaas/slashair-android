@@ -81,5 +81,43 @@ public class ServerEndpoint {
         return recent_transactions;
     }
 
+    public String get_balance(){
+        String balance_check_url = base_url + "api_v1/check_balance/";
+
+        HttpGet httpGet = new HttpGet(balance_check_url);
+
+        // add headers
+        httpGet = add_header(httpGet);
+        HttpClient httpClient = new DefaultHttpClient();
+        try {
+            Log.i(Tag, "execute url: "+balance_check_url);
+            HttpResponse response = httpClient.execute(httpGet);
+
+            HttpEntity response_entity = response.getEntity();
+            String response_content = EntityUtils.toString(response_entity);
+            Log.i(Tag, "response content: "+response_content);
+
+            return response_content;
+        } catch (IOException e) {
+            Log.i(Tag, "exception :"+e.getMessage());
+            e.printStackTrace();
+        }
+        return "150.0";
+    }
+
+    public String how_to_topup(){
+        String msg = "Using you MPESA-enabled phone, select \"Lipa na M-PESA\" from the M-PESA menu\n" +
+                "Select Pay Bill option\n" +
+                "Enter Business Number: 525900\n" +
+                "Enter your Account Identifier. Your account ID is:\n" +
+                "\n" +
+                this.username + ".sla\n" +
+                "\n" +
+                "Enter the Amount of credit you want to buy for your account\n" +
+                "Confirm that all the details are correct and press Ok\n" +
+                "You will receive an sms confirming deposit of the funds.\n" +
+                "Your account will be updated immediately ";
+        return msg;
+    }
 
 }
