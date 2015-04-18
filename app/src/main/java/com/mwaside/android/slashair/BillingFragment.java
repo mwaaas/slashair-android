@@ -2,13 +2,13 @@ package com.mwaside.android.slashair;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.mwaside.android.slashair.R;
+import android.widget.TextView;
 
 
 /**
@@ -20,7 +20,7 @@ import com.mwaside.android.slashair.R;
 public class BillingFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    TextView how_to_topup, balance_view;
     public BillingFragment() {
         // Required empty public constructor
     }
@@ -30,14 +30,16 @@ public class BillingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_billing, container, false);
-    }
+        View root_view = inflater.inflate(R.layout.fragment_billing, container, false);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        balance_view = (TextView) root_view.findViewById(R.id.show_balance);
+        how_to_topup = (TextView) root_view.findViewById(R.id.how_to_bill);
+
+        new FindBalance().execute();
+        how_to_topup.setText(new ServerEndpoint(getActivity().getApplicationContext()).how_to_topup());
+
+
+        return root_view;
     }
 
     @Override
@@ -69,7 +71,19 @@ public class BillingFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onBillingFragmentInteraction(Uri uri);
+    }
+
+    public class FindBalance extends AsyncTask<Void, Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            return new ServerEndpoint(getActivity().getApplicationContext()).get_balance();
+        }
+
+        protected void onPostExecute(final String balance){
+            balance_view.setText(balance);
+        }
     }
 
 }
